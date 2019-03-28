@@ -167,9 +167,9 @@
 
   执行步骤截图如下
 
-  ![start_script](https://github.com/CUCCS/linux-2019-jackcily/raw/job3/job3/img/add_group.PNG)
+  ![start_script](https://github.com/CUCCS/linux-2019-jackcily/raw/job3/job3/img/start_script.PNG)
 
-  ![stop_script](https://github.com/CUCCS/linux-2019-jackcily/raw/job3/job3/img/add_group.PNG)
+  ![stop_script](https://github.com/CUCCS/linux-2019-jackcily/raw/job3/job3/img/stop_script.PNG)
 
 - 如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动？实现**杀不死**？
 
