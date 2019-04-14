@@ -11,8 +11,7 @@ before_install:
     - /usr/bin/shellcheck --version
     
     #安装任务一需要使用的工具imagemagick
-    - sudo apt-get install imagemagick
-    - imagemagick --version 
+    - sudo apt-get install imagemagick 
     - sudo apt install ghostscript
 
 
