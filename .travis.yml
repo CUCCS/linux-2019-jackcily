@@ -12,7 +12,7 @@ before_install:
     
     #安装任务一需要使用的工具imagemagick
     - sudo apt-get install imagemagick
-    - sudo apt install linuxbrew-wrapper
+    - sudo apt-get install linuxbrew-wrapper
     - brew install gs
 
 
