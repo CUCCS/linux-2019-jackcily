@@ -13,6 +13,10 @@ before_install:
     #安装任务一需要使用的工具imagemagick
     - sudo apt-get install imagemagick 
     - sudo apt install ghostscript
+    
+    #下载任务2-2需要使用的文件
+    - wget "https://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
+    - 7z x archive.zip -o~ *.tsv
 
 
 script:
