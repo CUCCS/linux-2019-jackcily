@@ -13,8 +13,8 @@ before_install:
 
 script:
   - bash test.sh
-  - ls -l > 1.txt
-  #- bash /job4/img.sh -d /job4/img -r 50%x50%
+  #- ls -l > 1.txt
+  - bash job4/img.sh -d job4/img -r 50%x50%
 
 after_script:
   - /usr/bin/shellcheck test.sh
