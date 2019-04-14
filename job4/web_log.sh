@@ -5,7 +5,7 @@ url="/"
 host_top()
 {
 echo -e "统计访问来源主机TOP 100和分别对应出现的总次数 \n"
-more +2 web_log.tsv | awk -F\\t '{print $1}' |  sort | uniq -c | sort -nr | head -n 10
+more +2 web_log.tsv | awk -F\\t '{print $1}' |  sort | uniq -c | sort -nr | head -n 100
 exit 0
 }
 
@@ -22,12 +22,12 @@ frequency_url_top()
 {
 #统计最频繁被访问的URL TOP 100
 echo -e "统计最频繁被访问的URL TOP 100 \n"
-more +2 web_log.tsv |awk -F\\t '{print $5}'|sort|uniq -c |sort -n -k 1 -r|head -n 10 
+more +2 web_log.tsv |awk -F\\t '{print $5}'|sort|uniq -c |sort -n -k 1 -r|head -n 100
 exit 0
 } 
 
 
-#这个函数可能被搞乱了
+
 responsecode_stat()
 {
 #统计不同响应状态码的出现次数和对应百分比
@@ -46,7 +46,7 @@ done
 echo -e "响应码状态数据\n"
 i=0
 for n in ${count[@]};do
-echo -e "响应码: ${responsecode[$i]}  数量为: $n   百分比为: ${b[$i]} \n " 
+echo -e "响应码: ${responsecode[$i]}  数量为: $n   百分比为: ${b[$i]}% \n " 
 i=$((i+1))
 done
 
@@ -87,7 +87,7 @@ url_host()
 {
 url="	"$url"	"
 echo -e "给定URL输出TOP 100访问来源主机 \n"
-temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 10"
+temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 100"
 #echo $temp
 
 eval -- $temp

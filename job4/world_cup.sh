@@ -19,7 +19,7 @@ done
 
 echo -e "------统计不同年龄区间范围------"
 for i in `seq 0 2`;do
-echo -e "${a[$i]}  人数: ${age[$i]} 百分比: ${b[$i]}/% \n "
+echo -e "${a[$i]}  人数: ${age[$i]} 百分比: ${b[$i]}% \n "
 done
 }
 
@@ -46,10 +46,10 @@ b[$i]=$(echo "scale=2; 100*${n} / $sum"|bc)
 done
 
 #进行输出打印
-echo -e "----统计不同场上位置的球员数量、百分比\------"
+echo -e "----统计不同场上位置的球员数量、百分比------"
 i=0
 for n in ${count[@]};do
-echo -e "位置: ${position[$i]}  数量: $n   百分比: ${b[$i]}/% \n " 
+echo -e "位置: ${position[$i]}  数量: $n   百分比: ${b[$i]}% \n " 
 i=$((i+1))
 done
 }
@@ -167,5 +167,5 @@ age_count
 pos_count
 longgest_name
 shortest_name
-young
 old
+young
