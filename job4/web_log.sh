@@ -33,8 +33,8 @@ exit 0
 responsecode_stat()
 {
 #统计不同响应状态码的出现次数和对应百分比
-a=$(more +2 log/web_log.tsv |awk -F\\t '{print $6}'|sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $1}')
-b=$(more +2 log/web_log.tsv |awk -F\\t '{print $6}'|sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $2}')
+a=$(more +2 web_log.tsv |awk -F\\t '{print $6}'|sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $1}')
+b=$(more +2 web_log.tsv |awk -F\\t '{print $6}'|sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $2}')
 sum=0
 count=($a)
 responsecode=($b)
@@ -79,8 +79,9 @@ i=0
 for n in ${count[@]};do
 	if [ $n -lt $right ]&&[ $n -gt $left ]  #如果这个取值是4xx
  then
-echo ${n}
-   more +2 web_log.tsv |awk -F\\t '{print $6,$5}' | grep ${n} | sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $2,$1}'
+   echo ${n}      #响应码  url
+   #怎么拼接字符串
+   more +2 web_log.tsv |awk -F\\t '{print $6,$5}' | grep ${n}" " |sort|uniq -c |sort -n -k 1 -r|head -n 10|awk '{print $3,$1}'
  fi
 done
 

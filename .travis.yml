@@ -53,7 +53,7 @@ script:
   ##分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数
   - bash job4/web_log.sh -e
   ##给定URL输出TOP 100访问来源主机
-  - bash job4/web_log.sh -f "in24.inetnebr.com"
+  - bash job4/web_log.sh -f "/images/MOSAIC-logosmall.gif"
 
 after_script:
   - /usr/bin/shellcheck test.sh
