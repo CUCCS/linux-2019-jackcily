@@ -12,6 +12,7 @@ before_install:
     
     #安装任务一需要使用的工具imagemagick
     - sudo apt-get install imagemagick
+    - imagemagick --version 
     - sudo apt install ghostscript
 
 
@@ -31,6 +32,9 @@ script:
   - bash job4/img.sh -d job4/img -c
   ##支持多参数混合使用，如将png/svg图片统一转换为jpg格式图片后添加水印
   - bash job4/img.sh -d job4/img -c -w  "hello world"
+  
+  #任务二：用bash编写一个文本批处理脚本，对以下附件分别进行批量处理完成相应的数据统计任务
+  - bash job4/world_cup.sh
   
 
 after_script:
