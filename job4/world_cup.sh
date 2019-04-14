@@ -2,7 +2,7 @@
 
 age_count()
 {
-a=$(more +2  worldcupplayerinfo.tsv|awk -F\\t '{print $6}'|sort -r|awk 'BEGIN{split("<20 20-30 >30",b)}{if($1<20)a[1]++;if($1>=20&&$1<=30)a[2]++;if($1>30)a[3]++}END{for(i in a)print a[i]}')
+a=$(more +2  job4/worldcupplayerinfo.tsv|awk -F\\t '{print $6}'|sort -r|awk 'BEGIN{split("<20 20-30 >30",b)}{if($1<20)a[1]++;if($1>=20&&$1<=30)a[2]++;if($1>30)a[3]++}END{for(i in a)print a[i]}')
 
 #计算出总人数
 sum=0
@@ -27,8 +27,8 @@ done
 #uniq -c函数使用之前 使用 sort 命令使所有重复行相邻
 pos_count()
 {
-	a=$(more +2 worldcupplayerinfo.tsv|awk -F\\t '{print $5}'|sort -r|uniq -c|awk '{print $1}')
-	b=$(more +2 worldcupplayerinfo.tsv|awk -F\\t '{print $5}'|sort -r|uniq -c|awk '{print $2}')
+	a=$(more +2 job4/worldcupplayerinfo.tsv|awk -F\\t '{print $5}'|sort -r|uniq -c|awk '{print $1}')
+	b=$(more +2 job4/worldcupplayerinfo.tsv|awk -F\\t '{print $5}'|sort -r|uniq -c|awk '{print $2}')
 	sum=0
 	count=($a)
 	position=($b)
@@ -58,10 +58,10 @@ done
 young()
 {
 #首先找出年龄最小的数值
-young=$(more +2 worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{young=100}{if($6<=young){young=$6}}END{print young}')
+young=$(more +2 job4/worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{young=100}{if($6<=young){young=$6}}END{print young}')
 
 #然后把所有年龄为该数值的名字取出
-temp="more +2 worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{young="${young}";i=1}{if("'$6'"==young){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
+temp="more +2 job4/worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{young="${young}";i=1}{if("'$6'"==young){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
 
 name=$(eval -- $temp)
 
@@ -78,9 +78,9 @@ for key in "${!namearray[@]}"; do echo "${namearray[$key]}"; done
 old()
 {
 #计算方式和计算最小的年龄类似
-old=$(more +2 worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{old=0}{if($6>=old){old=$6}}END{print old}')
+old=$(more +2 job4/worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{old=0}{if($6>=old){old=$6}}END{print old}')
 
-temp="more +2 worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{old="${old}";i=1}{if("'$6'"==old){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
+temp="more +2 job4/worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{old="${old}";i=1}{if("'$6'"==old){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
 
 
 name=$(eval -- $temp)
@@ -98,7 +98,7 @@ for key in "${!namearray[@]}"; do echo "${namearray[$key]}"; done
 longgest_name()
 {
 
-name=$(more +2 worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
+name=$(more +2 job4/worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
 long=0
 IFS=$'\n' namearray=($name)
 
@@ -133,7 +133,7 @@ for key in "${!longarray[@]}"; do echo "${longarray[$key]}"; done
 shortest_name()
 {
 
-name=$(more +2 worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
+name=$(more +2 job4/worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
 short=100
 IFS=$'\n' namearray=($name)
 
