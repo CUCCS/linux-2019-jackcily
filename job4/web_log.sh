@@ -94,10 +94,12 @@ url_host()
 {
 url="	"$url"	"
 echo -e "给定URL输出TOP 100访问来源主机 \n"
-temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 100|awk '{print $2}'"
+#more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 5|awk '{print $2,$1}'
+temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n "
 #echo $temp
 
 eval -- $temp
+
 exit 0
 }
 
