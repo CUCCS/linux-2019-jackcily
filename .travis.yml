@@ -10,15 +10,17 @@ before_install:
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
     
+    
     #安装任务一需要使用的工具imagemagick
     - sudo apt-get install imagemagick 
     - sudo apt install ghostscript
+    
     
     #下载任务2-2需要使用的文件
     - wget "https://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
     - sudo apt install p7zip-full
     - 7z x web_log.tsv.7z
-    #- 7z x job4/web_log.tsv.7z -o~ *.tsv
+
 
 
 script:
