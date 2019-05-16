@@ -1,12 +1,16 @@
-##### https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/实验环境
+##### 实验环境
 
-虚拟机A:
+本实验使用了两台虚拟机，均安装在virtualbox中，一台为ubuntu18.04 server，称为A, 另一台为ubuntu18.04 desktop，称为B，两台虚拟机的配置如下：
 
-
-
-虚拟机B:
-
-
+- A的配置
+  - 操作系统为ubuntu18.04 server
+  - 配置nat上网和host-only网卡(169.254.134.150)
+  - 安装ansible/ 2.5.1
+- B的配置
+  - 操作系统为ubuntu18.04 desktop
+  - 安装openssh-server /1:7.6p1-4ubuntu0.3
+  - 安装python-minimal/python2.7.15rc1
+  - 配置nat上网和host-only网卡(169.254.134.111)
 
 
 
@@ -28,7 +32,7 @@
   ssh root@169.254.134.111
   ```
 
-  https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/1.PNG
+  
 
 
 ##### proftpd
@@ -76,7 +80,7 @@
 
 - [x] **FTP用户不能越权访问指定目录之外的任意其他目录和文件**
 
-  在proftpd.conf配置文件中，添加DefaultRoot ~ 就能限定用户只能访问自己的目录
+  在proftpd.conf配置文件中，添加DefaultRoot ~  限定用户只能访问自己的目录
 
 - [x] **匿名访问权限仅限白名单IP来源用户访问，禁止白名单IP以外的访问**
 
@@ -385,3 +389,4 @@ DNS实验要求
 - [How To Configure BIND as a Private Network DNS Server on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04)
 
   
+
