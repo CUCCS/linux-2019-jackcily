@@ -1,3 +1,5 @@
+
+
 ##### 实验环境
 
 本实验使用了两台虚拟机，均安装在virtualbox中，一台为ubuntu18.04 server，称为A, 另一台为ubuntu18.04 desktop，称为B，两台虚拟机的配置如下：
@@ -147,22 +149,32 @@
 
   - NFS中的文件属主、权限查看
 
-    NFS客户端文件夹的属主、权限信息![nfs_dir](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_dir.PNG)
+    NFS客户端文件夹的属主、权限信息
 
-    NFS只读文件夹的属主、权限信息![nfs_read](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_read.PNG)
+    ![nfs_dir](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_dir.PNG)
 
-    NFS读写文件夹的属主、权限信息![nfs_write](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_write.PNG)
+    NFS只读文件夹的属主、权限信息
 
-    通过nfs客户端创建的文件属主、权限信息![nfs_mkdir](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_mkdir.PNG)
+    ![nfs_read](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_read.PNG)
 
-    在NFS服务器端上查看文件属主、权限信息![nfs_mkdir_client](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_mkdir_client.PNG)
+    NFS读写文件夹的属主、权限信息
 
+    ![nfs_write](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_write.PNG)
+
+    通过nfs客户端创建的文件属主、权限信息
+
+    ![nfs_mkdir](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_mkdir.PNG)
+
+    在NFS服务器端上查看文件属主、权限信息
+  
+    ![nfs_mkdir_client](https://raw.githubusercontent.com/CUCCS/linux-2019-jackcily/job6/job6/img/nfs_mkdir_client.PNG)
+  
     
-
+  
   - 上述共享目录中文件、子目录的属主、权限信息和在NFS服务器端上查看到的信息一样吗？无论是否一致，请给出你查到的资料是如何讲解NFS目录中的属主和属主组信息应该如何正确解读
-
+  
     在/etc/exports配合文件中设置共享文件夹属性时，会涉及到一个参数no_root_squash，如果不设置这个参数，即使在客户端使用sudo创建目录文件，属主和权限信息都继承父文件夹，并不是root:root；相反，如果设置该参数，以sudo创建的目录文件就会是root:root。
-
+  
     
 
 ##### Samba
